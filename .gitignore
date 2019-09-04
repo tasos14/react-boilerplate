@@ -1,0 +1,7 @@
+node_modules
+src/static/js/*
+sslcert
+_server\.js
+package-lock.json
+.env
+passwd
