@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import {
-    BrowserRouter as Router, Route, NavLink, Switch
+    BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 // import PropTypes from 'prop-types';
-import styles from 'components/app/app.scss';
+import * as Styled from 'components/app/styles';
 
 function Index() {
-    return <h2 className={styles.h2}>Home</h2>;
+    return <Styled.H2>Home</Styled.H2>;
 }
 
 function About() {
-    return <h2 className={styles.h2}>About</h2>;
+    return <Styled.H2>About</Styled.H2>;
 }
 
 function Users() {
-    return <h2 className={styles.h2}>Users</h2>;
+    return <Styled.H2 >Users</Styled.H2>;
 }
 
 class App extends Component {
@@ -26,18 +26,18 @@ class App extends Component {
         return (
             <Router>
                 <>
-                    <nav className={styles.nav}>
-                        <ul>
-                            <li>
-                                <NavLink to="/" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/about" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">About</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/users" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Users</NavLink>
-                            </li>
-                        </ul>
+                    <nav>
+                        <Styled.Ul>
+                            <Styled.Li>
+                                <Styled.StyledNavLink to="/" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Home</Styled.StyledNavLink>
+                            </Styled.Li>
+                            <Styled.Li>
+                                <Styled.StyledNavLink to="/about" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">About</Styled.StyledNavLink>
+                            </Styled.Li>
+                            <Styled.Li>
+                                <Styled.StyledNavLink to="/users" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Users</Styled.StyledNavLink>
+                            </Styled.Li>
+                        </Styled.Ul>
                     </nav>
 
                     <Switch>
