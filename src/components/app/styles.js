@@ -10,12 +10,7 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
     flex: 1;
-    text-align: center;  
-`;
-
-export const H2 = styled.h2`
-    background-color: pink;
-    color: purple;
+    text-align: center;
 `;
 
 export const StyledNavLink = styled(NavLink)`
