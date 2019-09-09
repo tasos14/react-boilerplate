@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {
-    BrowserRouter as Router, Route, NavLink, Switch
-} from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { Route, Switch, NavLink } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
+import User from 'components/user/user.react';
+import Login from 'components/login/login.react';
 import styles from 'components/app/app.scss';
 
 function Index() {
@@ -13,42 +14,54 @@ function About() {
     return <h2 className={styles.h2}>About</h2>;
 }
 
-function Users() {
-    return <h2 className={styles.h2}>Users</h2>;
-}
-
 class App extends Component {
     // constructor() {
     //     super();
     // }
 
     render() {
+        const { username } = this.props;
         return (
-            <Router>
-                <>
-                    <nav className={styles.nav}>
-                        <ul>
+            <>
+                <nav className={styles.nav}>
+                    <ul>
+                        <li>
+                            <NavLink to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about">About</NavLink>
+                        </li>
+                        {username ? (
                             <li>
-                                <NavLink to="/" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Home</NavLink>
+                                <NavLink to="/user">User</NavLink>
                             </li>
+                        ) : (
                             <li>
-                                <NavLink to="/about" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">About</NavLink>
+                                <NavLink to="/login">Login</NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/users" activeStyle={{ backgroundColor: 'red' }} activeClassName="active">Users</NavLink>
-                            </li>
-                        </ul>
-                    </nav>
+                        )}
+                    </ul>
+                </nav>
 
-                    <Switch>
-                        <Route path="/" exact component={Index} />
-                        <Route path="/about" component={About} />
-                        <Route path="/users" component={Users} />
-                    </Switch>
-                </>
-            </Router>
+                <Switch>
+                    <Route path="/" exact component={Index} />
+                    <Route path="/about" component={About} />
+                    <Route path="/user" component={User} />
+                    <Route path="/login" component={Login} />
+                </Switch>
+            </>
         );
     }
 }
 
-export default App;
+App.propTypes = {
+    username: PropTypes.string
+};
+
+App.defaultProps = {
+    username: null
+};
+
+export default inject(stores => ({
+    username: stores.user.username
+}))(observer(App));
