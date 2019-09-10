@@ -5,7 +5,7 @@ export const Ul = styled.ul`
     list-style: none;
     display: flex;
     background-color: aliceblue;
-    padding: 10px 0;
+    padding: 0;
 `;
 
 export const Li = styled.li`
@@ -15,7 +15,9 @@ export const Li = styled.li`
 
 export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
-
+    display: block;
+    padding: 10px 0;
+    
     &.active {
         background-color: aquamarine;
     }
