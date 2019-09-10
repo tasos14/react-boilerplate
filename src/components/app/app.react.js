@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import { H2 } from 'components/common/styles';
 import User from 'components/user/user.react';
@@ -27,7 +27,9 @@ class App extends Component {
                 <nav>
                     <Styled.Ul>
                         <Styled.Li>
-                            <Styled.StyledNavLink to="/">Home</Styled.StyledNavLink>
+                            <Styled.StyledNavLink exact to="/">
+                                Home
+                            </Styled.StyledNavLink>
                         </Styled.Li>
                         <Styled.Li>
                             <Styled.StyledNavLink to="/about">About</Styled.StyledNavLink>
@@ -47,8 +49,8 @@ class App extends Component {
                 <Switch>
                     <Route path="/" exact component={Index} />
                     <Route path="/about" component={About} />
-                    <Route path="/user" component={User} />
-                    <Route path="/login" component={Login} />
+                    <Route path="/user" render={() => (username ? <User /> : <Redirect push to="/login" />)} />
+                    <Route path="/login" render={() => (!username ? <Login /> : <Redirect push to="/user" />)} />
                 </Switch>
             </>
         );
