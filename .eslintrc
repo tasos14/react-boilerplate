@@ -29,10 +29,8 @@
       "version": "16.5.2"
     },
     "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ]
+      "webpack": {
+        "config": "webpack.config.dev.js"
       }
     }
   }
