@@ -23,7 +23,7 @@
     ]
   },
   "extends": ["airbnb-base", "plugin:react/recommended", "plugin:import/errors",
-    "plugin:import/warnings", "prettier"],
+    "plugin:import/warnings", "prettier", "plugin:compat/recommended"],
   "settings": {
     "react": {
       "version": "16.5.2"
