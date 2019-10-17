@@ -43,7 +43,7 @@ module.exports = () => {
                                 // camelCase: true,
                             }
                         },
-                        { 
+                        {
                             loader: 'sass-loader',
                             options: {
                                 sourceMap: false
@@ -70,6 +70,19 @@ module.exports = () => {
             historyApiFallback: {
                 index: '/index-static.html'
             }
+        },
+        stats: {
+            modules: false,
+            usedExports: false,
+            children: false,
+            entrypoints: true,
+            maxModules: 0,
+            errors: true,
+            warnings: true,
+            moduleTrace: false,
+            errorDetails: false,
+            colors: true,
+            performance: false
         }
     };
 };
