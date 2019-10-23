@@ -1,4 +1,4 @@
-$bg-color: pink !default;
+$bg-color: red !default;
 
 .nav {
     ul {
@@ -15,7 +15,7 @@ $bg-color: pink !default;
                 padding: 10px 0;
                 text-decoration: none;
                 &:global(.active) {
-                    background-color: cornflowerblue;
+                    background-color: rgb(58, 90, 149);
                 }
             } 
         }
@@ -24,5 +24,5 @@ $bg-color: pink !default;
 
 .h2 {
     background-color: $bg-color;
-    color: purple;
+    color: green;
 }
